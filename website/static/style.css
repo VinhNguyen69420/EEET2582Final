@@ -12,14 +12,35 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden;
+    
 }
 .wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 110vh;
     background: rgba(39, 39, 39, 0.4);
+    color: black;
+    
+}
+.wrapper2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(39, 39, 39, 0.4);
+}
+
+.child{
+    background: rgba(39, 39, 39, 0.1);
+    min-height : 100vh
+}
+.child2{
+    background: rgba(39, 39, 39, 0.2);
+    min-height : 100vh;
+    margin-top: 90px;
+}
+#paypal-button{
+    min-height: 40px;
 }
 .no-wrapper{
     display: block;

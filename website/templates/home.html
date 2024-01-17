@@ -1,5 +1,6 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content2
   %}
+  <div class="wrapper2">
   <div class= "no-wrapper">
     {% if remaining_time and remaining_time.total_seconds() > 0 %}
         <p style="color: orange;">
@@ -22,4 +23,5 @@
         <input type="submit" value="Upload" {% if remaining_time and remaining_time.total_seconds() > 0 %}disabled{% endif %}>
     </form>
   </div>
+</div>
 {% endblock %}

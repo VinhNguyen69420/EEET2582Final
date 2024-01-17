@@ -8,6 +8,7 @@ from docx import Document
 import pytz
 from . import db
 from .wordFileProc_final import fixDocGrammar
+from werkzeug.security import generate_password_hash, check_password_hash
 views = Blueprint('views', __name__)
 
 # Set the upload folder and allowed extensions
@@ -120,6 +121,7 @@ paypalrestsdk.configure({
   "client_secret": "EF310QfcEBoV-VsC5bh0CyGO4RB9jQww_CTEgcxSkCW48uS79sdJu6DRTOSFKqLMGYwYxO0u5RWjGTif" 
   })
 
+
 @views.route('/premium')
 @login_required
 def index():
@@ -149,8 +151,7 @@ def payment():
             "description": "This is the payment transaction description."}]})
 
     if payment.create():
-        current_user.subscription = True
-        db.session.commit()
+        print("ass")
         
     else:
         print(payment.error)
@@ -166,7 +167,27 @@ def execute():
     if payment.execute({'payer_id' : request.form['payerID']}):
         print('Execute success!')
         success = True
+        current_user.subscription = True
+        db.session.commit()
     else:
         print(payment.error)
 
     return jsonify({'success' : success})
+@views.route('/account')
+@login_required
+def inex():
+    return render_template('account.html', user = current_user)
+@views.route('/process_form', methods=['POST'])
+def process():
+    first_name = request.form.get('first_name')
+    password = generate_password_hash(request.form.get('password'), method='pbkdf2:sha256')
+    oldPass = request.form.get('old')
+    if check_password_hash(current_user.password, oldPass):
+    
+        current_user.first_name = first_name
+        current_user.password = password
+        db.session.commit()
+        return redirect(url_for('views.home'))
+    else:
+        flash('Old Password don\'t match.', category='error')
+    return render_template('account.html', user = current_user)
