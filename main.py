@@ -1,15 +1,11 @@
-from website import create_app
-import os
+from flask import Flask, request, abort
 
-app = create_app()
+app = Flask(__name__)
 
-# Specify the absolute path for the uploads folder outside the 'website' directory
-UPLOAD_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), 'uploads'))
-
-ALLOWED_EXTENSIONS = {'docx'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+@app.route("/")
+def hello_world():
+    html = f"<h1>Deployed with Zeet!!</h1>"
+    return html
 
 if __name__ == '__main__':
-    if not os.path.exists(UPLOAD_FOLDER):
-        os.makedirs(UPLOAD_FOLDER)
-    app.run(debug=True)
+	app.run(host="0.0.0.0", port=3000)
