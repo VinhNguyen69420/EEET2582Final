@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+  %}
+  <div class= "no-wrapper">
+    {% if remaining_time and remaining_time.total_seconds() > 0 %}
+        <p style="color: orange;">
+            You can upload again in
+            {{ remaining_time.seconds // 3600 }} hours,
+            {{ (remaining_time.seconds % 3600) // 60 }} minutes, and
+            {{ remaining_time.seconds % 60 }} seconds.
+        </p>
+    {% endif %}
+    
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+        <p>Download your file: <a href="{{ url_for('views.download_file', filename=filename) }}">{{ filename }}</a></p>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".docx">
+        <input type="submit" value="Upload" {% if remaining_time and remaining_time.total_seconds() > 0 %}disabled{% endif %}>
+    </form>
+  </div>
+{% endblock %}
