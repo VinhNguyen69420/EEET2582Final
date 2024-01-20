@@ -2,3 +2,6 @@ flask
 Flask-SQLAlchemy
 flask-login
 python-docx
+Flask-Cors
+paypalrestsdk
+pytz
