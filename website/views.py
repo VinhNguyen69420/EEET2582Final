@@ -101,7 +101,7 @@ def upload_file():
         modified_file_path = modify_docx_content(file_path)
 
         # Update the last upload time in the session
-        current_user.last_upload_time = datetime.now()
+        current_user.last_upload_time = datetime.now(pytz.FixedOffset(420))
         db.session.commit()
 
         return render_template('home.html', success='File uploaded and modified successfully', filename=filename, modified_filename=os.path.basename(modified_file_path), user=current_user)
@@ -165,10 +165,12 @@ def execute():
     payment = paypalrestsdk.Payment.find(request.form['paymentID'])
 
     if payment.execute({'payer_id' : request.form['payerID']}):
-        print('Execute success!')
-        success = True
+        
+        
         current_user.subscription = True
         db.session.commit()
+        print('Execute successs!')
+        success = True
     else:
         print(payment.error)
 

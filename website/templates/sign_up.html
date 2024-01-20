@@ -1,62 +1,72 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
-content2 %}
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content2 %}
+<!-- Second content block for the sign-up page -->
 <div class="wrapper2">
-<form method="POST">
-  <div class="form-box">
-  
-    <div class = "login-container" id = "login">
-    <div class="top">
-      <header>Sign up</header>
-    </div>
-      <div class = "input-box">
-      <input
-        type="email"
-        class="input-field"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
-      <i class="bx bx-envelope"></i>
-  
-    </div>
-    <div class="input-box">
-      
-      <input
-        type="text"
-        class="input-field"
-        id="firstName"
-        name="firstName"
-        placeholder="Enter first name"
-      />
-      <i class="bx bx-user"></i>
-    </div>
-    <div class="input-box">
-      <input
-        type="password"
-        class="input-field"
-        id="password1"
-        name="password1"
-        placeholder="Enter password"
-      />
-      <i class="bx bx-lock-alt"></i>
-    </div>
-    <div class="input-box">
-      <input
-        type="password"
-        class="input-field"
-        id="password2"
-        name="password2"
-        placeholder="Confirm password"
-      />
-      <i class="bx bx-lock-alt"></i>
-    </div>
-   
-    <div class="input-box">
-      <input type="submit" class="submit" value="Sign In">
-  </div>
-  
-  </div>
-  </form>
-  </div>
+    <form method="POST">
+        <!-- Form for user sign-up -->
+        <div class="form-box">
+        
+            <!-- Sign-up container with email, first name, and password input fields -->
+            <div class="login-container" id="login">
+                <div class="top">
+                    <header>Sign up</header>
+                </div>
+                <div class="input-box">
+                    <!-- Email input field with corresponding icon -->
+                    <input
+                        type="email"
+                        class="input-field"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"
+                    />
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <!-- First name input field with corresponding icon -->
+                    <input
+                        type="text"
+                        class="input-field"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter first name"
+                    />
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <!-- Password input field with corresponding icon -->
+                    <input
+                        type="password"
+                        class="input-field"
+                        id="password1"
+                        name="password1"
+                        placeholder="Enter password"
+                    />
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <!-- Confirm password input field with corresponding icon -->
+                    <input
+                        type="password"
+                        class="input-field"
+                        id="password2"
+                        name="password2"
+                        placeholder="Confirm password"
+                    />
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                
+                <div class="input-box">
+                    <!-- Submit button for the sign-up form -->
+                    <input type="submit" class="submit" value="Sign Up">
+                </div>
+            
+            </div>
+        </div>
+    </form>
 </div>
+<!-- End of the second content block -->
 {% endblock %}

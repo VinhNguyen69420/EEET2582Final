@@ -1,41 +1,50 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content2
-%}
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content2 %}
+<!-- Second content block for the login page -->
 <div class="wrapper2">
-<form method="POST">
-<div class="form-box">
+    <form method="POST">
+        <!-- Form for user login -->
+        <div class="form-box">
 
-  <div class = "login-container" id = "login">
-  <div class="top">
-    <header>Login</header>
-  </div>
-    <div class = "input-box">
-    <input
-      type="email"
-      class="input-field"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-    />
-    <i class="bx bx-envelope"></i>
+            <!-- Login container with email and password input fields -->
+            <div class="login-container" id="login">
+                <div class="top">
+                    <header>Login</header>
+                </div>
+                <div class="input-box">
+                    <!-- Email input field with corresponding icon -->
+                    <input
+                        type="email"
+                        class="input-field"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"
+                    />
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <!-- Password input field with corresponding icon -->
+                    <input
+                        type="password"
+                        class="input-field"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                    />
+                    <i class="bx bx-lock-alt"></i>
+                </div>
 
-  </div>
-  <div class="input-box">
-    <input
-      type="password"
-      class="input-field"
-      id="password"
-      name="password"
-      placeholder="Enter password"
-    />
-    <i class="bx bx-lock-alt"></i>
-  </div>
- 
-  <div class="input-box">
-    <input type="submit" class="submit" value="Sign In">
-</div>
+                <div class="input-box">
+                    <!-- Submit button for the login form -->
+                    <input type="submit" class="submit" value="Sign In">
+                </div>
 
+            </div>
+        </div>
+    </form>
 </div>
-</form>
-</div>
-</div>
+<!-- End of the second content block -->
 {% endblock %}
